@@ -352,7 +352,9 @@ function team(c){
 function broadcastsOf(c){
   const out = [], seen = new Set();
   (c.geoBroadcasts || []).forEach(b => {
-    const name = b.media?.shortName; if (!name || seen.has(name)) return; seen.add(name);
+    const name = b.media?.shortName; if (!name || seen.has(name)) return;
+    if (/radio/i.test(b.type?.shortName || "")) return;   // skip radio feeds (e.g. ESPN Radio "ERADM")
+    seen.add(name);
     out.push({name, type: b.type?.shortName || "TV", market: b.market?.type || "National"});
   });
   if (!out.length) (c.broadcasts || []).forEach(b => (b.names || []).forEach(n => {
