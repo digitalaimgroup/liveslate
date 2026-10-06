@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0b1220">
 <title>LiveSlate</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="LiveSlate">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Figtree:wght@400;500;600;700&display=swap">
@@ -211,7 +218,71 @@ footer{margin-top:28px;font-size:12px;color:var(--muted);text-align:center}
 .box-team{margin:16px 0 4px;display:flex;align-items:center;gap:8px;font:700 18px/1 var(--f-display);text-transform:uppercase}
 .box-team img{width:22px;height:22px;object-fit:contain}
 .box-grp{margin:10px 0 2px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+/* header actions */
+.actions{display:flex;align-items:center;gap:6px;min-width:0}
+.icon-btn{position:relative;width:38px;height:38px;border-radius:10px;border:1px solid var(--line);background:var(--surface);display:grid;place-items:center;flex:none}
+.icon-btn svg{width:19px;height:19px}
+.icon-btn.on{color:var(--gold);border-color:color-mix(in srgb,var(--gold) 55%,var(--line))}
+.icon-btn .badge{position:absolute;top:-5px;right:-5px;min-width:18px;height:18px;padding:0 5px;border-radius:999px;background:var(--gold);color:#1a1405;font:700 11px/18px var(--f-body);text-align:center}
+.linkbtn{border:0;background:transparent;color:var(--accent);font-weight:700;font-size:13px;padding:2px 4px;letter-spacing:0;text-transform:none;font-family:var(--f-body)}
+.bell{display:inline-flex;color:var(--gold)}
+.bell svg{width:14px;height:14px}
+
+/* my teams group */
+.group.mine h3{color:var(--gold)}
+.group.mine h3::after{background:color-mix(in srgb,var(--gold) 40%,var(--line))}
+.invite{margin-top:16px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;border-radius:14px;border:1px dashed color-mix(in srgb,var(--gold) 50%,var(--line));background:var(--surface)}
+.invite b{display:block;font:700 17px/1.1 var(--f-display);text-transform:uppercase;letter-spacing:.04em}
+.invite span{font-size:13px;color:var(--muted)}
+.btn{border:0;border-radius:10px;padding:9px 14px;font-weight:700;background:var(--accent);color:var(--accent-ink);white-space:nowrap}
+.btn.ghost{background:var(--surface);color:var(--ink);border:1px solid var(--line)}
+.btn[aria-pressed="true"]{background:var(--gold);color:#1a1405}
+.btn svg{width:16px;height:16px;vertical-align:-3px;margin-right:6px}
+
+/* team picker + alert settings sheets */
+.sheet-title{font:800 20px/1 var(--f-display);text-transform:uppercase;letter-spacing:.06em}
+.picked{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.pick{display:inline-flex;align-items:center;gap:6px;border:1px solid color-mix(in srgb,var(--gold) 55%,var(--line));background:var(--surface);border-radius:999px;padding:4px 6px 4px 8px;font-size:13px;font-weight:600}
+.pick img{width:18px;height:18px;object-fit:contain}
+.pick small{color:var(--muted);font-size:11px;font-weight:700}
+.pick button{border:0;background:var(--surface-2);border-radius:50%;width:22px;height:22px;line-height:1;font-size:14px;color:var(--muted)}
+.search{width:100%;margin-top:12px;padding:11px 14px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:inherit}
+.tlist{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.trow{display:flex;align-items:center;gap:12px;width:100%;padding:10px 14px;border:0;border-bottom:1px solid var(--line);background:transparent;text-align:left}
+.tlist li:last-child .trow{border-bottom:0}
+.trow img{width:28px;height:28px;object-fit:contain;flex:none}
+.trow .tn{flex:1;min-width:0;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.trow .ts2{font-size:12px;color:var(--muted)}
+.trow .st2{font:700 13px/1 var(--f-body);color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:5px 10px;white-space:nowrap}
+.trow[aria-pressed="true"] .st2{background:var(--gold);border-color:var(--gold);color:#1a1405}
+.opt{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 0;border-bottom:1px solid var(--line)}
+.opt:last-child{border-bottom:0}
+.opt b{display:block;font-weight:600}
+.opt span{font-size:13px;color:var(--muted)}
+.switch{position:relative;width:46px;height:28px;flex:none}
+.switch input{position:absolute;inset:0;opacity:0;margin:0;cursor:pointer}
+.switch i{position:absolute;inset:0;border-radius:999px;background:var(--line);transition:background .15s;pointer-events:none}
+.switch i::after{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.25);transition:transform .15s}
+.switch input:checked + i{background:var(--win)}
+.switch input:checked + i::after{transform:translateX(18px)}
+.switch input:focus-visible + i{outline:2px solid var(--accent);outline-offset:2px}
+.perm{display:flex;flex-direction:column;gap:10px;padding:14px;border-radius:14px;background:var(--surface-2);border:1px solid var(--line);font-size:14px}
+.perm.ok{border-color:color-mix(in srgb,var(--win) 50%,var(--line))}
+.perm.bad{border-color:color-mix(in srgb,var(--live) 50%,var(--line))}
+.perm ol{margin:0;padding-left:20px}
+.flist{display:flex;flex-direction:column;gap:6px}
+.frow{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:14px}
+
+/* toasts */
+#toasts{position:fixed;left:0;right:0;bottom:0;z-index:80;display:flex;flex-direction:column;align-items:center;gap:8px;padding:0 16px calc(16px + env(safe-area-inset-bottom,0px));pointer-events:none}
+.toast{pointer-events:auto;width:100%;max-width:440px;display:flex;gap:12px;align-items:flex-start;text-align:left;border:1px solid var(--line);border-left:4px solid var(--gold);background:var(--surface);color:var(--ink);border-radius:12px;padding:12px 14px;box-shadow:var(--shadow);animation:tin .25s ease-out}
+.toast b{display:block;font-size:14px}
+.toast span{font-size:13px;color:var(--muted)}
+.toast svg{width:18px;height:18px;color:var(--gold);flex:none;margin-top:2px}
+@keyframes tin{from{transform:translateY(16px);opacity:0}}
+
 @media (max-width:520px){
+  .sync #syncText{display:none}
   .game{grid-template-columns:62px 1fr auto;gap:10px;padding:10px}
   .big-sc{font-size:42px;gap:10px}
   .tm img{width:44px;height:44px}
@@ -227,7 +298,11 @@ footer{margin-top:28px;font-size:12px;color:var(--muted);text-align:center}
   <div class="top-in">
     <div class="brand-row">
       <div class="brand"><h1>Live<span>Slate</span></h1><small>by Digital AIM</small></div>
-      <div class="sync" id="sync"><span class="dot"></span><span id="syncText">Loading…</span></div>
+      <div class="actions">
+        <div class="sync" id="sync"><span class="dot"></span><span id="syncText">Loading…</span></div>
+        <button class="icon-btn" id="openTeams" aria-label="My teams"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/></svg><span class="badge" id="teamsBadge" hidden></span></button>
+        <button class="icon-btn" id="openAlerts" aria-label="Alerts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9a6 6 0 1 1 12 0c0 6 2.5 7.5 2.5 7.5h-17S6 15 6 9z"/><path d="M10 20a2.2 2.2 0 0 0 4 0"/></svg></button>
+      </div>
     </div>
     <nav class="rail" id="rail" aria-label="Leagues"></nav>
   </div>
@@ -261,6 +336,30 @@ footer{margin-top:28px;font-size:12px;color:var(--muted);text-align:center}
   <div class="wrap" id="detail"></div>
 </div>
 
+<div class="sheet" id="teamsSheet" hidden role="dialog" aria-modal="true" aria-label="My teams">
+  <div class="sheet-top"><div class="in">
+    <span class="sheet-title">My Teams</span>
+    <button class="back" data-close="teamsSheet">Done</button>
+  </div></div>
+  <div class="wrap">
+    <div id="picked"></div>
+    <nav class="rail" id="trail" aria-label="Choose a league" style="margin-top:14px;padding-bottom:0"></nav>
+    <input class="search" id="teamSearch" type="search" placeholder="Search teams" autocomplete="off">
+    <ul class="tlist" id="teamList"></ul>
+  </div>
+</div>
+
+<div class="sheet" id="alertsSheet" hidden role="dialog" aria-modal="true" aria-label="Alert settings">
+  <div class="sheet-top"><div class="in">
+    <span class="sheet-title">Alerts</span>
+    <button class="back" data-close="alertsSheet">Done</button>
+  </div></div>
+  <div class="wrap" id="alertsBody"></div>
+</div>
+
+<div id="toasts" aria-live="polite"></div>
+
+<script src="push-config.js"></script>
 <script>
 "use strict";
 const API = "https://site.api.espn.com/apis/site/v2/sports/";
@@ -307,7 +406,13 @@ const state = {
   updated: 0,
   loading: false,
   error: null,
-  fav: new Set(loadPref("fav", [])),
+  fav: loadFavs(),            // Map "lg:teamId" -> {lg, id, name, abbr, logo}
+  follow: loadPref("follow", {}),   // gameId -> {lg, exp} games with alerts on
+  alertPrefs: Object.assign({teams:true, soon:true, start:true, score:true, close:true, final:true, mustWatch:false}, loadPref("alertPrefs", {})),
+  sent: loadPref("sent", {}),       // alert key -> time sent, so nothing fires twice
+  snap: {},                         // gameId -> last seen {st, h, a} for alert diffing
+  todayGames: [],                   // today's games across every league alerts care about
+  teamLg: null, teamQuery: "",
   detail: null,     // {game, data, tab, scoringOnly, shown, seenPlays}
   dayKey: null,     // calendar day the app last loaded, used for midnight rollover
 };
@@ -316,6 +421,12 @@ let boardTimer = null, detailTimer = null, firstLoad = true;
 /* ---------- helpers ---------- */
 function loadPref(k, d){ try{ const v = localStorage.getItem("liveslate." + k); return v ? JSON.parse(v) : d; }catch(e){ return d; } }
 function savePref(k, v){ try{ localStorage.setItem("liveslate." + k, JSON.stringify(v)); }catch(e){} }
+function loadFavs(){
+  const m = new Map(loadPref("favs", []));
+  if (!m.size) loadPref("fav", []).forEach(k => { const [lg, id] = k.split(":"); m.set(k, {lg, id, name:"", abbr:"", logo:""}); }); // older version stored keys only
+  return m;
+}
+function saveFavs(){ savePref("favs", [...state.fav.entries()]); schedulePushSync(); }
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const $ = id => document.getElementById(id);
 const clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
@@ -401,7 +512,7 @@ const CLOSE_LABEL = {football:"One-score game", basketball:"Single-digit game", 
 function watchScore(g){
   const L = g.lg, why = [];
   let s = 0;
-  const favHit = state.fav.has(g.lg.key + ":" + g.home.id) || state.fav.has(g.lg.key + ":" + g.away.id);
+  const favHit = isFavGame(g);
   const ranked = (g.home.rank ? 1 : 0) + (g.away.rank ? 1 : 0);
   if (g.state === "in"){
     const margin = Math.abs((g.home.score || 0) - (g.away.score || 0));
@@ -462,20 +573,40 @@ function watchChips(bs, max){
 
 /* ---------- scoreboard loading ---------- */
 function activeLeagues(){ return state.league === "all" ? LEAGUES : [LG[state.league]]; }
-function sbUrl(l){ return `${API}${l.path}/scoreboard?dates=${ymd(dayDate(state.dayOffset))}${l.q ? "&" + l.q : ""}`; }
+function sbUrl(l, d){ return `${API}${l.path}/scoreboard?dates=${d}${l.q ? "&" + l.q : ""}`; }
+// Leagues that must be watched for alerts even when the screen shows another league or day.
+function alertLeagues(){
+  const s = new Set();
+  if (state.alertPrefs.teams) state.fav.forEach(f => LG[f.lg] && s.add(f.lg));
+  Object.values(state.follow).forEach(f => LG[f.lg] && s.add(f.lg));
+  if (state.alertPrefs.mustWatch) LEAGUES.forEach(l => s.add(l.key));
+  return s;
+}
+function alertsActive(){ return alertLeagues().size > 0; }
 
 async function loadBoard(){
   clearTimeout(boardTimer);
   state.loading = true; renderSync();
   if (firstLoad) renderSkeleton();
-  const lgs = activeLeagues();
-  const res = await Promise.allSettled(lgs.map(l => getJSON(sbUrl(l))));
-  const games = [];
-  let ok = 0;
-  res.forEach((r, i) => {
-    if (r.status !== "fulfilled") return; ok++;
-    (r.value.events || []).forEach(ev => { try { games.push(norm(ev, lgs[i])); } catch(e){} });
-  });
+  const showDate = ymd(dayDate(state.dayOffset)), today = ymd(dayDate(0));
+  const showLgs = activeLeagues(), watchLgs = [...alertLeagues()].map(k => LG[k]);
+  // one request per league+date, shared between what's on screen and what alerts watch
+  const jobs = new Map();
+  const need = (l, d) => {
+    const k = l.key + "|" + d;
+    if (!jobs.has(k)) jobs.set(k, getJSON(sbUrl(l, d)).then(j => (j.events || []).map(ev => { try { return norm(ev, l); } catch(e){ return null; } }).filter(Boolean)));
+    return k;
+  };
+  const showKeys = showLgs.map(l => need(l, showDate));
+  const watchKeys = watchLgs.map(l => need(l, today));
+  const keys = [...jobs.keys()];
+  const res = await Promise.allSettled([...jobs.values()]);
+  const got = {};
+  res.forEach((r, i) => { if (r.status === "fulfilled") got[keys[i]] = r.value; });
+  const ok = showKeys.filter(k => got[k]).length;
+  const games = showKeys.flatMap(k => got[k] || []);
+  const todayMap = new Map();
+  (showDate === today ? showKeys : []).concat(watchKeys).forEach(k => (got[k] || []).forEach(g => todayMap.set(g.id, g)));
   state.loading = false;
   state.dayKey = ymd(dayDate(0));
   if (!ok){ state.error = "Couldn't reach the live score feed. If you opened this inside an app's file preview, open it in Safari or Chrome instead (previews block live data). Otherwise check your connection."; }
@@ -490,23 +621,264 @@ async function loadBoard(){
     state.games = games;
     state.updated = Date.now();
   }
+  const todayGames = [...todayMap.values()];
+  todayGames.forEach(g => { if (!g.ws) g.ws = watchScore(g); });
+  state.todayGames = todayGames;
+  runAlerts(todayGames);
   firstLoad = false;
   render();
   if (state.detail){
-    const fresh = state.games.find(x => x.id === state.detail.game.id);
+    const fresh = findGame(state.detail.game.id);
     if (fresh){ state.detail.game = fresh; renderDetailHead(); }
   }
-  if (!document.hidden) boardTimer = setTimeout(loadBoard, nextPollMs());
+  if (pendingOpen && findGame(pendingOpen)){ const id = pendingOpen; pendingOpen = null; openGame(id); }
+  // keep checking in the background only when alerts need it
+  if (!document.hidden || alertsActive()) boardTimer = setTimeout(loadBoard, document.hidden ? Math.max(60000, nextPollMs()) : nextPollMs());
 }
+function findGame(id){ return state.games.find(x => x.id === id) || state.todayGames.find(x => x.id === id); }
 // Poll fast while games are live, and wake up right at the next start time so games flip to LIVE on their own.
 function nextPollMs(){
-  if (state.games.some(g => g.state === "in")) return 20000;
+  const pool = state.games.concat(state.todayGames);
+  if (pool.some(g => g.state === "in")) return 20000;
   const now = Date.now();
-  const starts = state.games.filter(g => g.state === "pre").map(g => new Date(g.date) - now);
+  const starts = pool.filter(g => g.state === "pre").map(g => new Date(g.date) - now);
   const soon = starts.filter(ms => ms > -15*60000).sort((a, b) => a - b)[0];
-  if (soon != null && soon < 10*60000) return 20000;           // starting within 10 min (or just past start)
+  if (soon != null && soon < 20*60000) return 20000;           // starting within 20 min (covers the 15-min alert)
   if (soon != null && soon < 60*60000) return 60000;
   return 120000;
+}
+
+/* ---------- alerts ---------- */
+const BELL = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9a6 6 0 1 1 12 0c0 6 2.5 7.5 2.5 7.5h-17S6 15 6 9z"/><path d="M10 20a2.2 2.2 0 0 0 4 0"/></svg>`;
+let pendingOpen = (location.hash.match(/^#g(\d+)$/) || [])[1] || null;
+const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+const isStandalone = () => window.matchMedia?.("(display-mode: standalone)").matches || navigator.standalone === true;
+function notifSupport(){
+  if (!("Notification" in window)) return isIOS && !isStandalone() ? "ios-install" : "none";
+  return Notification.permission; // "default" | "granted" | "denied"
+}
+async function askPermission(){
+  if (!("Notification" in window)) return notifSupport();
+  try { await Notification.requestPermission(); } catch(e){}
+  if (Notification.permission === "granted") await pushSetup();
+  renderAlertsSheet(); renderHeaderIcons();
+  return Notification.permission;
+}
+
+/* ---------- push: alerts from the LiveSlate alert server, even when the app is closed ---------- */
+const PUSH_URL = String(window.LIVESLATE_PUSH || "").trim().replace(/\/+$/, "");
+const pushCapable = () => !!PUSH_URL && "serviceWorker" in navigator && "PushManager" in window && location.protocol === "https:";
+state.push = {on: false, err: null};
+function b64uToBytes(s){ s = s.replace(/-/g, "+").replace(/_/g, "/"); const b = atob(s + "===".slice((s.length + 3) % 4)); return Uint8Array.from(b, c => c.charCodeAt(0)); }
+async function pushSetup(){
+  if (!pushCapable() || !("Notification" in window) || Notification.permission !== "granted") return false;
+  try {
+    const reg = await navigator.serviceWorker.ready;
+    const {publicKey} = await getJSON(PUSH_URL + "/vapid");
+    let sub = await reg.pushManager.getSubscription();
+    if (sub && loadPref("pushKey", "") !== publicKey){ await sub.unsubscribe().catch(() => {}); sub = null; }   // server keys changed
+    if (!sub) sub = await reg.pushManager.subscribe({userVisibleOnly: true, applicationServerKey: b64uToBytes(publicKey)});
+    savePref("pushKey", publicKey);
+    await pushSync(sub);
+    state.push = {on: true, err: null};
+  } catch(e){
+    state.push = {on: false, err: "Couldn't connect to the alert server, so alerts only work while LiveSlate is open."};
+  }
+  renderAlertsSheet();
+  return state.push.on;
+}
+async function pushSync(sub){
+  sub = sub || await (await navigator.serviceWorker.ready).pushManager.getSubscription();
+  if (!sub) return;
+  const r = await fetch(PUSH_URL + "/subscribe", {method: "POST", headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({subscription: sub.toJSON(), teams: [...state.fav.keys()], games: state.follow, prefs: state.alertPrefs})});
+  if (!r.ok) throw new Error("subscribe " + r.status);
+}
+let pushSyncTimer = null;
+function schedulePushSync(){
+  if (!state.push.on) return;
+  clearTimeout(pushSyncTimer);
+  pushSyncTimer = setTimeout(() => pushSync().catch(() => { state.push.err = "Your latest alert changes didn't reach the alert server. They'll retry next time you open LiveSlate."; }), 800);
+}
+async function pushTest(){
+  try {
+    const sub = await (await navigator.serviceWorker.ready).pushManager.getSubscription();
+    const r = await fetch(PUSH_URL + "/test", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify({endpoint: sub.endpoint})});
+    const j = await r.json().catch(() => ({}));
+    toast(r.ok ? "Test alert sent" : "Test alert didn't send", r.ok ? "It should pop up on this device in a few seconds, even if you close LiveSlate." : (j.error || "Try again in a minute."), null);
+  } catch(e){ toast("Test alert didn't send", "Couldn't reach the alert server.", null); }
+}
+function teamLabel(t){ return t.abbr || t.name; }
+function scoreline(g){ return `${teamLabel(g.away)} ${g.away.score ?? 0}, ${teamLabel(g.home)} ${g.home.score ?? 0}`; }
+function matchup(g){ return `${teamLabel(g.away)} at ${teamLabel(g.home)}`; }
+function fire(key, title, body, g){
+  if (state.sent[key]) return;
+  state.sent[key] = Date.now(); savePref("sent", state.sent);
+  notify(title, body, g);
+}
+function runAlerts(games){
+  const P = state.alertPrefs;
+  games.forEach(g => {
+    const prev = state.snap[g.id];
+    state.snap[g.id] = {st:g.state, h:g.home.score, a:g.away.score};
+    const tv = watchList(g.broadcasts)[0]?.label;
+    const on = tv ? ` · ${tv}` : "";
+    const mine = (P.teams && isFavGame(g)) || !!state.follow[g.id];
+    if (mine){
+      if (P.soon && g.state === "pre"){
+        const m = (new Date(g.date) - Date.now()) / 60000;
+        if (m > 0 && m <= 15) fire(`soon:${g.id}`, `${matchup(g)} starts in ${Math.max(1, Math.round(m))} min`, `${g.lg.name}${on}`, g);
+      }
+      if (P.start && g.state === "in" && prev && prev.st === "pre") fire(`start:${g.id}`, `${matchup(g)} is underway`, `${g.lg.name}${on}`, g);
+      if (P.score && g.state === "in" && prev && prev.st === "in" && (prev.h !== g.home.score || prev.a !== g.away.score)){
+        const homeUp = (g.home.score ?? 0) > (prev.h ?? 0), awayUp = (g.away.score ?? 0) > (prev.a ?? 0);
+        const who = homeUp && !awayUp ? g.home.name : awayUp && !homeUp ? g.away.name : "";
+        const last = g.sit?.lastPlay?.text;
+        fire(`score:${g.id}:${g.away.score}-${g.home.score}`, `${who ? who + " score · " : ""}${scoreline(g)}`, `${g.detail}${last ? " · " + last : ""}`, g);
+      }
+      if (P.close && g.state === "in" && g.ws?.why.some(w => w.t === "Crunch time")) fire(`close:${g.id}`, `Crunch time: ${scoreline(g)}`, `${g.detail}${on}`, g);
+      if (P.final && g.state === "post" && prev && prev.st !== "post"){
+        const w = g.home.winner ? g.home : g.away.winner ? g.away : null;
+        fire(`final:${g.id}`, `Final: ${scoreline(g)}`, w ? `${w.full || w.name} win` : g.lg.name, g);
+      }
+    }
+    if (P.mustWatch && g.state === "in" && g.ws?.score >= 80) fire(`must:${g.id}`, `Must-watch: ${scoreline(g)}`, `${g.lg.name} · ${g.detail} · Watch Score ${g.ws.score}${on}`, g);
+  });
+}
+async function notify(title, body, g){
+  toast(title, body, g?.id);
+  if (!("Notification" in window) || Notification.permission !== "granted") return;
+  if (state.push.on && g) return;   // the alert server sends this one, so don't double up
+  const opts = {body, tag: "ls-" + (g?.id || "x") + "-" + title.slice(0, 12), icon: "icon-192.png", badge: "icon-192.png", data: {gameId: g?.id || null}};
+  try {
+    const reg = await navigator.serviceWorker?.getRegistration();
+    if (reg){ await reg.showNotification(title, opts); return; }
+  } catch(e){}
+  try { const n = new Notification(title, opts); n.onclick = () => { window.focus(); if (g?.id) openGame(g.id); n.close(); }; } catch(e){}
+}
+function toast(title, body, id){
+  const box = $("toasts"); if (!box) return;
+  const t = document.createElement("button");
+  t.className = "toast"; if (id) t.dataset.toastId = id;
+  t.innerHTML = `${BELL}<div><b>${esc(title)}</b><span>${esc(body || "")}</span></div>`;
+  box.appendChild(t);
+  while (box.children.length > 3) box.firstChild.remove();
+  setTimeout(() => t.remove(), 9000);
+}
+function toggleFollow(g){
+  if (state.follow[g.id]) delete state.follow[g.id];
+  else {
+    state.follow[g.id] = {lg: g.lg.key, exp: new Date(g.date).getTime() + 36*3600e3};
+    state.snap[g.id] = state.snap[g.id] || {st:g.state, h:g.home.score, a:g.away.score};
+    if (notifSupport() === "default") askPermission();
+    toast("Alerts on", `${matchup(g)}: you'll get ${alertSummary()}.`, null);
+  }
+  savePref("follow", state.follow);
+  schedulePushSync();
+  renderHeaderIcons();
+}
+function alertSummary(){
+  const P = state.alertPrefs, l = [];
+  if (P.soon) l.push("starting soon"); if (P.start) l.push("start"); if (P.score) l.push("scores");
+  if (P.close) l.push("crunch time"); if (P.final) l.push("final");
+  return l.length ? l.join(", ") : "nothing yet (turn some alerts on in Alerts)";
+}
+function pruneAlertData(){
+  const now = Date.now();
+  Object.keys(state.follow).forEach(id => { if (state.follow[id].exp < now) delete state.follow[id]; });
+  Object.keys(state.sent).forEach(k => { if (now - state.sent[k] > 3*86400e3) delete state.sent[k]; });
+  savePref("follow", state.follow); savePref("sent", state.sent);
+}
+function renderHeaderIcons(){
+  const nf = state.fav.size, b = $("teamsBadge");
+  if (b){ b.hidden = !nf; b.textContent = nf; }
+  $("openTeams")?.classList.toggle("on", nf > 0);
+  $("openAlerts")?.classList.toggle("on", alertsActive() && notifSupport() === "granted");
+}
+function renderAlertsSheet(){
+  const el = $("alertsBody"); if (!el) return;
+  const s = notifSupport(), P = state.alertPrefs;
+  let perm;
+  if (s === "granted" && state.push.on) perm = `<div class="perm ok"><div><b>Notifications are on.</b> Alerts reach this device even when LiveSlate is closed.</div><div><button class="btn ghost" id="testAlert">Send a test alert</button></div></div>`;
+  else if (s === "granted") perm = `<div class="perm ok"><div><b>Notifications are on.</b> ${state.push.err ? esc(state.push.err) : pushCapable() ? "Connecting to the alert server…" : "Alerts show up while LiveSlate is open or running in the background."}</div><div><button class="btn ghost" id="testAlert">Send a test alert</button></div></div>`;
+  else if (s === "default") perm = `<div class="perm"><div><b>Turn on notifications</b> to get alerts on your lock screen. Without them, alerts only show inside the app.</div><div><button class="btn" id="askPerm">Turn on notifications</button></div></div>`;
+  else if (s === "denied") perm = `<div class="perm bad"><div><b>Notifications are blocked for this site.</b> Turn them back on in your browser or phone settings for digitalaimgroup.github.io, then reopen LiveSlate. Alerts still show inside the app.</div></div>`;
+  else if (s === "ios-install") perm = `<div class="perm"><div><b>On iPhone, alerts need LiveSlate on your Home Screen:</b></div><ol><li>Tap the Share button in Safari.</li><li>Tap <b>Add to Home Screen</b>, then Add.</li><li>Open LiveSlate from the new icon and come back here to turn on notifications.</li></ol></div>`;
+  else perm = `<div class="perm"><div>This browser doesn't support notifications. Alerts still show inside the app while it's open.</div></div>`;
+  const sw = (k, title, sub) => `<label class="opt"><div><b>${title}</b><span>${sub}</span></div><span class="switch"><input type="checkbox" data-pref="${k}" ${P[k] ? "checked" : ""}><i></i></span></label>`;
+  const favs = [...state.fav.values()];
+  const follows = Object.entries(state.follow).map(([id, f]) => ({id, f, g: findGame(id)}));
+  el.innerHTML = `${perm}
+    <div class="panel"><h4>Who alerts you</h4>
+      ${sw("teams", "My teams", favs.length ? esc(favs.map(f => f.name || f.abbr || "Team").join(", ")) : "Follow teams to get alerts for every game they play")}
+      <div class="opt"><div><b>Games you follow</b><span>${follows.length ? esc(follows.map(x => x.g ? matchup(x.g) : "Upcoming game").join(", ")) : "Open any game and tap Alert me"}</span></div></div>
+      ${sw("mustWatch", "Must-watch games", "Any league, when a live game's Watch Score hits 80 or more")}
+      <div style="padding-top:10px"><button class="btn ghost" data-open="teams">Pick my teams</button></div>
+    </div>
+    <div class="panel"><h4>What alerts you</h4>
+      ${sw("soon", "Starting soon", "15 minutes before first pitch, tip-off or kickoff")}
+      ${sw("start", "Game starts", "When the game goes live")}
+      ${sw("score", "Every score", "Runs, goals, touchdowns, field goals and baskets as they land")}
+      ${sw("close", "Crunch time", "Close game late, so you can flip it on")}
+      ${sw("final", "Final score", "Who won and the final")}
+    </div>
+    <p class="hint">${state.push.on ? "The LiveSlate alert server checks scores every minute, so alerts arrive within a minute or two of the play." : "Alerts come from LiveSlate checking scores, so it needs to be open or running in the background. Phones pause web apps after a while, so open LiveSlate before your game starts."}</p>`;
+}
+
+/* ---------- my teams picker ---------- */
+const teamCache = {};
+async function loadTeams(lgKey){
+  if (teamCache[lgKey]) return teamCache[lgKey];
+  const l = LG[lgKey];
+  const j = await getJSON(`https://site.api.espn.com/apis/v2/sports/${l.path}/standings`);
+  const m = new Map();
+  (function walk(n){ if (!n) return; (n.standings?.entries || []).forEach(e => e.team && m.set(String(e.team.id), e.team)); (n.children || []).forEach(walk); })(j);
+  const list = [...m.values()].map(t => ({lg: lgKey, id: String(t.id), name: t.displayName || t.name, short: t.shortDisplayName || t.name, abbr: t.abbreviation || "", logo: t.logos?.[0]?.href || ""}))
+    .sort((a, b) => a.name.localeCompare(b.name));
+  teamCache[lgKey] = list;
+  return list;
+}
+function toggleFav(meta){
+  const k = meta.lg + ":" + meta.id;
+  if (state.fav.has(k)) state.fav.delete(k);
+  else state.fav.set(k, {lg: meta.lg, id: String(meta.id), name: meta.short || meta.name, abbr: meta.abbr, logo: meta.logo});
+  saveFavs();
+  state.games.concat(state.todayGames).forEach(g => g.ws = watchScore(g));
+  renderHeaderIcons();
+}
+function renderPicked(){
+  const favs = [...state.fav.entries()];
+  $("picked").innerHTML = favs.length
+    ? `<div class="hint" style="margin:0">Following ${favs.length} team${favs.length === 1 ? "" : "s"}. Their games pin to the top${state.alertPrefs.teams ? " and send you alerts" : ""}.</div><div class="picked">${favs.map(([k, f]) => `<span class="pick">${img(f.logo)}${esc(f.name || f.abbr || "Team")} <small>${esc(LG[f.lg]?.name || "")}</small><button data-unfav="${esc(k)}" aria-label="Unfollow ${esc(f.name)}">×</button></span>`).join("")}</div>`
+    : `<div class="hint" style="margin:0">Pick your teams. Their games pin to the top of LiveSlate and can send you alerts.</div>`;
+}
+async function renderTeamList(){
+  const lg = state.teamLg;
+  $("trail").innerHTML = LEAGUES.map(l => `<button class="chip" data-tlg="${l.key}" aria-pressed="${l.key === lg}">${esc(l.name)}</button>`).join("");
+  const ul = $("teamList");
+  let list;
+  try { list = await loadTeams(lg); }
+  catch(e){ ul.innerHTML = `<li class="trow">Couldn't load ${esc(LG[lg].name)} teams. Check your connection.</li>`; return; }
+  if (state.teamLg !== lg) return;
+  const q = state.teamQuery.trim().toLowerCase();
+  const shown = q ? list.filter(t => (t.name + " " + t.abbr + " " + t.short).toLowerCase().includes(q)) : list;
+  ul.innerHTML = shown.length ? shown.map(t => {
+    const on = state.fav.has(lg + ":" + t.id);
+    return `<li><button class="trow" data-team="${esc(t.id)}" aria-pressed="${on}">${img(t.logo)}<span class="tn">${esc(t.name)}</span><span class="ts2">${esc(t.abbr)}</span><span class="st2">${on ? "Following" : "Follow"}</span></button></li>`;
+  }).join("") : `<li class="trow">No ${esc(LG[lg].name)} teams match "${esc(state.teamQuery)}".</li>`;
+}
+function openSheet(id){
+  if (id === "teamsSheet"){
+    if (!state.teamLg) state.teamLg = state.league !== "all" ? state.league : "nba";
+    renderPicked(); renderTeamList();
+  }
+  if (id === "alertsSheet") renderAlertsSheet();
+  $(id).hidden = false; $(id).scrollTop = 0; document.body.style.overflow = "hidden";
+}
+function closeSheet(id){
+  $(id).hidden = true;
+  if ([...document.querySelectorAll(".sheet")].every(s => s.hidden)) document.body.style.overflow = "";
+  if (id === "teamsSheet" || id === "alertsSheet"){ render(); if (state.detail) renderDetail(); if (id === "teamsSheet") loadBoard(); }
 }
 // New calendar day: jump back to today's slate and start fresh.
 function checkRollover(){
@@ -601,7 +973,7 @@ function gameCard(g){
   return `<button class="game${isFavGame(g) ? " fav" : ""}" data-id="${esc(g.id)}" aria-label="${esc(g.away.full)} at ${esc(g.home.full)}">
     <div class="st">${statusCell(g)}</div>
     <div class="rows">${teamRow(g.away, g, "a")}${teamRow(g.home, g, "h")}${sit ? `<div class="sit">${esc(sit)}</div>` : ""}</div>
-    <div class="side">${showWs ? `<div class="ws" title="Watch Score">${g.ws.score}<small>WATCH</small></div>` : ""}${tv ? `<span class="tv">${esc(tv.label)}</span>` : ""}</div>
+    <div class="side">${showWs ? `<div class="ws" title="Watch Score">${g.ws.score}<small>WATCH</small></div>` : ""}${tv ? `<span class="tv">${esc(tv.label)}</span>` : ""}${state.follow[g.id] ? `<span class="bell" title="Alerts on">${BELL}</span>` : ""}</div>
   </button>`;
 }
 function renderBest(){
@@ -638,20 +1010,31 @@ function render(){
   renderSlate();
   renderBest();
   const games = state.games.filter(g => state.filter === "all" || g.state === state.filter).sort(sortGames);
+  // My Teams: pinned above everything else
+  const mine = games.filter(isFavGame), rest = games.filter(g => !isFavGame(g));
+  const shownFavs = [...state.fav.values()].filter(f => state.league === "all" || f.lg === state.league);
+  let html = "";
+  if (!state.fav.size){
+    html += `<div class="invite"><div><b>Follow your teams</b><span>Pin their games to the top and get score alerts.</span></div><button class="btn" data-open="teams">Pick teams</button></div>`;
+  } else if (mine.length){
+    html += `<div class="group mine"><h3>My Teams <button class="linkbtn" data-open="teams">Edit</button></h3><div class="games">${mine.map(gameCard).join("")}</div></div>`;
+  } else if (shownFavs.length && state.filter === "all"){
+    html += `<div class="group mine"><h3>My Teams <button class="linkbtn" data-open="teams">Edit</button></h3><div class="hint" style="margin:0">${esc(shownFavs.map(f => f.name || f.abbr).join(", "))} ${shownFavs.length === 1 ? "doesn't" : "don't"} play ${state.dayOffset === 0 ? "today" : "on " + esc(dayLabel(state.dayOffset))}.</div></div>`;
+  }
   if (!games.length){
     const what = {all:"games", in:"live games right now", pre:"upcoming games", post:"final scores"}[state.filter];
-    $("list").innerHTML = `<div class="empty">No ${what} ${state.dayOffset === 0 ? "today" : "on " + dayLabel(state.dayOffset)}${state.league !== "all" ? " in the " + LG[state.league].name : ""}.${state.filter !== "all" ? `<br><button data-setfilter="all">Show all games</button>` : ""}</div>`;
+    $("list").innerHTML = html + `<div class="empty">No ${what} ${state.dayOffset === 0 ? "today" : "on " + dayLabel(state.dayOffset)}${state.league !== "all" ? " in the " + LG[state.league].name : ""}.${state.filter !== "all" ? `<br><button data-setfilter="all">Show all games</button>` : ""}</div>`;
     return;
   }
-  let html = "";
-  const groups = state.league === "all" ? LEAGUES.map(l => [l, games.filter(g => g.lg.key === l.key)]).filter(x => x[1].length) : [[LG[state.league], games]];
+  const groups = state.league === "all" ? LEAGUES.map(l => [l, rest.filter(g => g.lg.key === l.key)]).filter(x => x[1].length) : (rest.length ? [[LG[state.league], rest]] : []);
   groups.forEach(([l, gs]) => { html += `<div class="group"><h3>${esc(l.name)}</h3><div class="games">${gs.map(gameCard).join("")}</div></div>`; });
   $("list").innerHTML = html;
 }
 
 /* ---------- detail ---------- */
 function openGame(id){
-  const g = state.games.find(x => x.id === id); if (!g) return;
+  const g = findGame(id); if (!g) return;
+  ["teamsSheet", "alertsSheet"].forEach(s => { $(s).hidden = true; });
   state.detail = {game:g, data:null, tab:"plays", scoringOnly:false, shown:150, seen:null, err:null};
   $("sheet").hidden = false; document.body.style.overflow = "hidden";
   $("sheet").scrollTop = 0;
@@ -696,7 +1079,20 @@ function mergeHeader(d){
 }
 function favBtn(g, t){
   const k = g.lg.key + ":" + t.id, on = state.fav.has(k);
-  return `<button class="star" data-fav="${esc(k)}" aria-pressed="${on}">${on ? "★ My team" : "☆ Follow"}</button>`;
+  return `<button class="star" data-fav="${esc(k)}" data-side="${t === g.home ? "h" : "a"}" aria-pressed="${on}">${on ? "★ My team" : "☆ Follow team"}</button>`;
+}
+function alertsPanel(g){
+  if (g.state === "post") return "";
+  const on = !!state.follow[g.id];
+  const favs = [g.away, g.home].filter(t => state.fav.has(g.lg.key + ":" + t.id));
+  const viaTeam = favs.length && state.alertPrefs.teams;
+  const s = notifSupport();
+  const note = viaTeam ? `You already get alerts for this game because you follow ${esc(favs.map(t => t.name).join(" and "))}.`
+    : on ? `You'll get: ${esc(alertSummary())}.` : `Get ${esc(alertSummary())} for just this game.`;
+  const warn = s === "denied" ? " Notifications are blocked, so alerts only show inside the app." : s === "ios-install" ? " On iPhone, add LiveSlate to your Home Screen to get lock-screen alerts." : "";
+  return `<div class="panel"><h4>Alerts</h4>
+    <button class="btn${on ? "" : " ghost"}" data-follow="${esc(g.id)}" aria-pressed="${on}">${BELL}${on ? "Alerts on for this game" : "Alert me for this game"}</button>
+    <div class="hint">${note}${warn} <button class="linkbtn" data-open="alerts">Alert settings</button></div></div>`;
 }
 function renderDetailHead(){
   const d = state.detail; if (!d) return;
@@ -745,6 +1141,7 @@ function detailHeadHTML(g){
       </div>
       ${sit}${ls}
     </div>
+    ${alertsPanel(g)}
     <div class="panel"><h4>Where to watch</h4><div class="watch">${watchChips(g.broadcasts)}</div>
       <div class="hint">${g.venue ? esc(g.venue) + " · " : ""}Local broadcasts and blackouts depend on where you live.</div></div>
     ${g.state !== "post" ? `<div class="panel"><h4>Watch Score · ${g.ws.score}</h4><div class="why" style="padding:0">${g.ws.why.length ? g.ws.why.map(w => `<span class="tag${w.hot ? " hot" : ""}">${esc(w.t)}</span>`).join("") : `<span class="hint" style="margin:0">Nothing special yet. Check back as it tightens up.</span>`}</div></div>` : ""}
@@ -868,10 +1265,31 @@ document.addEventListener("click", e => {
   const sf = e.target.closest("[data-setfilter]");
   if (sf){ state.filter = sf.dataset.setfilter; render(); return; }
   if (e.target.closest("#retry")){ firstLoad = true; loadBoard(); return; }
+  // sheets
+  const op = e.target.closest("[data-open]");
+  if (op){ openSheet(op.dataset.open === "teams" ? "teamsSheet" : "alertsSheet"); return; }
+  const cl = e.target.closest("[data-close]");
+  if (cl){ closeSheet(cl.dataset.close); return; }
+  if (e.target.closest("#openTeams")){ openSheet("teamsSheet"); return; }
+  if (e.target.closest("#openAlerts")){ openSheet("alertsSheet"); return; }
+  const tlg = e.target.closest("[data-tlg]");
+  if (tlg){ state.teamLg = tlg.dataset.tlg; state.teamQuery = ""; $("teamSearch").value = ""; $("teamList").innerHTML = `<li class="trow">Loading teams…</li>`; renderTeamList(); return; }
+  const tr = e.target.closest("[data-team]");
+  if (tr){ const t = (teamCache[state.teamLg] || []).find(x => x.id === tr.dataset.team); if (t){ toggleFav(t); renderPicked(); renderTeamList(); } return; }
+  const uf = e.target.closest("[data-unfav]");
+  if (uf){ state.fav.delete(uf.dataset.unfav); saveFavs(); renderHeaderIcons(); renderPicked(); renderTeamList(); return; }
+  if (e.target.closest("#askPerm")){ askPermission(); return; }
+  if (e.target.closest("#testAlert")){ if (state.push.on) pushTest(); else notify("LiveSlate alerts are working", "You'll get alerts like this for your teams and followed games.", null); return; }
+  const fl = e.target.closest("[data-follow]");
+  if (fl && state.detail){ toggleFollow(state.detail.game); renderDetail(); render(); return; }
+  const ti = e.target.closest("[data-toast-id]");
+  if (ti){ ti.remove(); openGame(ti.dataset.toastId); return; }
+  if (e.target.closest(".toast")){ e.target.closest(".toast").remove(); return; }
   const fav = e.target.closest("[data-fav]");
-  if (fav){
-    const k = fav.dataset.fav; state.fav.has(k) ? state.fav.delete(k) : state.fav.add(k); savePref("fav", [...state.fav]);
-    state.games.forEach(g => g.ws = watchScore(g)); render(); renderDetail(); return;
+  if (fav && state.detail){
+    const g = state.detail.game, t = fav.dataset.side === "h" ? g.home : g.away;
+    toggleFav({lg: g.lg.key, id: t.id, name: t.full || t.name, short: t.name, abbr: t.abbr, logo: t.logo});
+    render(); renderDetail(); return;
   }
   const tab = e.target.closest("[data-tab]");
   if (tab && state.detail){ state.detail.tab = tab.dataset.tab; state.detail.shown = 150; renderDetail(); return; }
@@ -881,19 +1299,42 @@ document.addEventListener("click", e => {
 });
 document.addEventListener("change", e => {
   if (e.target.id === "scoringOnly" && state.detail){ state.detail.scoringOnly = e.target.checked; state.detail.shown = 150; renderDetail(); }
+  const pk = e.target.dataset?.pref;
+  if (pk){
+    state.alertPrefs[pk] = e.target.checked; savePref("alertPrefs", state.alertPrefs); schedulePushSync();
+    renderHeaderIcons();
+    if (e.target.checked && notifSupport() === "default") askPermission();
+    else renderAlertsSheet();
+  }
 });
+$("teamSearch").addEventListener("input", e => { state.teamQuery = e.target.value; renderTeamList(); });
 $("back").addEventListener("click", closeGame);
-document.addEventListener("keydown", e => { if (e.key === "Escape" && state.detail) closeGame(); });
+document.addEventListener("keydown", e => {
+  if (e.key !== "Escape") return;
+  const open = ["alertsSheet", "teamsSheet"].find(id => !$(id).hidden);
+  if (open) closeSheet(open); else if (state.detail) closeGame();
+});
 $("prevDay").addEventListener("click", () => { state.dayOffset--; state.games = []; state.prev = {}; firstLoad = true; render(); loadBoard(); });
 $("nextDay").addEventListener("click", () => { state.dayOffset++; state.games = []; state.prev = {}; firstLoad = true; render(); loadBoard(); });
 document.addEventListener("visibilitychange", () => {
-  if (document.hidden){ clearTimeout(boardTimer); clearTimeout(detailTimer); }
+  if (document.hidden){ clearTimeout(detailTimer); if (!alertsActive()) clearTimeout(boardTimer); }   // alerts keep checking in the background
   else { checkRollover(); loadBoard(); if (state.detail) loadDetail(); }
 });
+// service worker: lets phones show notifications and reopen the right game when one is tapped
+if ("serviceWorker" in navigator && location.protocol === "https:"){
+  navigator.serviceWorker.register("sw.js").catch(() => {});
+  navigator.serviceWorker.addEventListener("message", e => {
+    const id = e.data?.gameId; if (e.data?.type !== "open" || !id) return;
+    if (findGame(id)) openGame(id); else { pendingOpen = id; loadBoard(); }
+  });
+}
 window.addEventListener("focus", checkRollover);
 setInterval(() => { renderSync(); renderSlate(); checkRollover(); if (state.detail) renderDetailHead(); }, 30000);
 setInterval(() => { renderSync(); if (state.detail) renderDetailHead(); }, 5000);
 
+pruneAlertData();
+if ("Notification" in window && Notification.permission === "granted") pushSetup().then(renderHeaderIcons);   // re-sync on every open
+renderHeaderIcons();
 render();
 loadBoard();
 </script>
