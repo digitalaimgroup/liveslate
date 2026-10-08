@@ -7,6 +7,17 @@
 <title>LiveSlate</title>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
+<!-- iPhone Home Screen launch screens (navy + logo instead of a white flash) -->
+<link rel="apple-touch-startup-image" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="splash/launch-1290x2796.png">
+<link rel="apple-touch-startup-image" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="splash/launch-1179x2556.png">
+<link rel="apple-touch-startup-image" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="splash/launch-1284x2778.png">
+<link rel="apple-touch-startup-image" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="splash/launch-1170x2532.png">
+<link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="splash/launch-1125x2436.png">
+<link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="splash/launch-1242x2688.png">
+<link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="splash/launch-828x1792.png">
+<link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="splash/launch-750x1334.png">
+<link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="splash/launch-1242x2208.png">
+<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="splash/launch-640x1136.png">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
@@ -282,6 +293,10 @@ footer{margin-top:28px;font-size:12px;color:var(--muted);text-align:center}
 @keyframes tin{from{transform:translateY(16px);opacity:0}}
 
 @media (max-width:520px){
+  .actions{gap:6px}
+  .icon-btn{width:34px;height:34px}
+  .brand{flex-direction:column;gap:0}
+  .brand small{white-space:nowrap;font-size:10px}
   .sync #syncText{display:none}
   .game{grid-template-columns:62px 1fr auto;gap:10px;padding:10px}
   .big-sc{font-size:42px;gap:10px}
@@ -291,6 +306,45 @@ footer{margin-top:28px;font-size:12px;color:var(--muted);text-align:center}
   .ring{width:66px;height:66px}.ring>div{width:52px;height:52px;font-size:24px}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+/* my services, my week, share, watch status */
+.tv.yes{color:var(--win);border-color:color-mix(in srgb,var(--win) 50%,var(--line))}
+.tv.no{opacity:.6}
+.wchip.mine{border-color:var(--win);box-shadow:inset 0 0 0 1px var(--win)}
+.wchip.mine em{color:var(--win)}
+.btn.sm{padding:7px 11px;font-size:13px}
+.wnote{flex-basis:100%;margin:2px 0 0}
+.wbanner{font-size:14px;font-weight:600;margin:-2px 0 10px;color:var(--muted)}
+.wbanner.yes{color:var(--win)}
+.wbanner.no{color:var(--live)}
+.dacts{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.trow.svc .tn{white-space:normal}
+.trow.svc .tn b{display:block;font-weight:700}
+.trow.svc .tn small{display:block;font-size:12px;color:var(--muted);font-weight:500;margin-top:2px}
+.check{width:24px;height:24px;border-radius:7px;border:2px solid var(--line);display:grid;place-items:center;flex:none;font-weight:800;font-size:14px}
+.check.on{background:var(--win);border-color:var(--win);color:#fff}
+.wk-day{margin:20px 0 8px;font:700 15px/1 var(--f-display);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.wk-row{display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:8px 10px;margin-bottom:8px}
+.wk-main{flex:1;min-width:0;display:flex;align-items:center;gap:12px;border:0;background:transparent;text-align:left;padding:2px}
+.wk-time{display:flex;flex-direction:column;min-width:64px}
+.wk-time b{font:800 17px/1.1 var(--f-display)}
+.wk-time small{font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.06em}
+.wk-teams{display:flex;flex-direction:column;gap:3px;min-width:0;font-weight:600}
+.wk-teams>span{display:flex;align-items:center;gap:7px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wk-teams img{width:20px;height:20px;object-fit:contain}
+.wk-teams small{font-size:12px;color:var(--muted);font-weight:600}
+.wk-teams small.yes{color:var(--win)}
+.wk-acts{display:flex;gap:6px}
+.lvl{gap:10px}
+.lvl-team{display:flex;align-items:center;gap:10px;min-width:0}
+.lvl-team img{width:26px;height:26px;object-fit:contain;flex:none}
+.seg.mini{flex:none}
+.seg.mini button{padding:5px 9px;font-size:12px}
+.presets{display:flex;flex-wrap:wrap;gap:6px;padding:4px 0 6px}
+.presets .chip{font-size:13px}
+.share-prev{margin-top:14px;display:grid;place-items:center}
+.share-prev img{width:100%;max-width:360px;border-radius:14px;border:1px solid var(--line)}
+.share-acts{display:flex;justify-content:center;margin-top:14px}
+.share-acts .btn{padding:12px 24px}
 </style>
 </head>
 <body>
@@ -300,6 +354,7 @@ footer{margin-top:28px;font-size:12px;color:var(--muted);text-align:center}
       <div class="brand"><h1>Live<span>Slate</span></h1><small>by Digital AIM</small></div>
       <div class="actions">
         <div class="sync" id="sync"><span class="dot"></span><span id="syncText">Loading…</span></div>
+        <button class="icon-btn" id="openServices" aria-label="My services"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="12" rx="2"/><path d="M8.5 21h7"/></svg></button>
         <button class="icon-btn" id="openTeams" aria-label="My teams"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/></svg><span class="badge" id="teamsBadge" hidden></span></button>
         <button class="icon-btn" id="openAlerts" aria-label="Alerts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9a6 6 0 1 1 12 0c0 6 2.5 7.5 2.5 7.5h-17S6 15 6 9z"/><path d="M10 20a2.2 2.2 0 0 0 4 0"/></svg></button>
       </div>
@@ -355,6 +410,38 @@ footer{margin-top:28px;font-size:12px;color:var(--muted);text-align:center}
     <button class="back" data-close="alertsSheet">Done</button>
   </div></div>
   <div class="wrap" id="alertsBody"></div>
+</div>
+
+<div class="sheet" id="servicesSheet" hidden role="dialog" aria-modal="true" aria-label="My services">
+  <div class="sheet-top"><div class="in">
+    <span class="sheet-title">My Services</span>
+    <button class="back" data-close="servicesSheet">Done</button>
+  </div></div>
+  <div class="wrap">
+    <p class="hint">Pick the TV and streaming apps you have. Every game then shows whether you can watch it, and Best Game On picks from games you can actually turn on.</p>
+    <ul class="tlist" id="svcList"></ul>
+    <div style="margin:16px 0 30px"><button class="btn" id="svcSave" style="width:100%;padding:13px">Save</button></div>
+  </div>
+</div>
+
+<div class="sheet" id="weekSheet" hidden role="dialog" aria-modal="true" aria-label="My week">
+  <div class="sheet-top"><div class="in">
+    <span class="sheet-title">My Week</span>
+    <button class="back" data-close="weekSheet">Done</button>
+  </div></div>
+  <div class="wrap" id="weekBody"></div>
+</div>
+
+<div class="sheet" id="shareSheet" hidden role="dialog" aria-modal="true" aria-label="Share">
+  <div class="sheet-top"><div class="in">
+    <span class="sheet-title">Share</span>
+    <button class="back" id="shareClose">Close</button>
+  </div></div>
+  <div class="wrap">
+    <div id="sharePrev" class="share-prev"></div>
+    <div class="share-acts"><button class="btn" id="shareGo">Share image</button></div>
+    <p class="hint" style="text-align:center">Post it to X, Instagram or your group chat.</p>
+  </div>
 </div>
 
 <div id="toasts" aria-live="polite"></div>
@@ -413,6 +500,11 @@ const state = {
   snap: {},                         // gameId -> last seen {st, h, a} for alert diffing
   todayGames: [],                   // today's games across every league alerts care about
   teamLg: null, teamQuery: "",
+  services: loadPref("services", []),          // My Services ids
+  servicesAsked: loadPref("servicesAsked", false),
+  levels: loadPref("levels", {}),              // "lg:teamId" -> all | big | off
+  quiet: Object.assign({on:false, start:22, end:8}, loadPref("quiet", {})),
+  weekGames: [], share: null,
   detail: null,     // {game, data, tab, scoringOnly, shown, seenPlays}
   dayKey: null,     // calendar day the app last loaded, used for midnight rollover
 };
@@ -454,7 +546,7 @@ function team(c){
     id: t.id, abbr: t.abbreviation || "", name: t.shortDisplayName || t.name || t.displayName || "TBD",
     full: t.displayName || t.name || "", logo: t.logo || t.logos?.[0]?.href || "",
     color: t.color ? "#" + t.color : null,
-    score: c.score != null && c.score !== "" ? Number(typeof c.score === "object" ? c.score.value : c.score) : null,
+    score: (() => { const v = c.score == null || c.score === "" ? NaN : Number(typeof c.score === "object" ? (c.score.value ?? c.score.displayValue) : c.score); return isNaN(v) ? null : v; })(),
     record: c.records?.[0]?.summary || c.record?.[0]?.summary || "",
     rank: rk && rk <= 25 ? rk : null, winner: !!c.winner,
     lines: (c.linescores || []).map(x => x.displayValue ?? x.value),
@@ -467,6 +559,10 @@ function broadcastsOf(c){
     if (/radio/i.test(b.type?.shortName || "")) return;   // skip radio feeds (e.g. ESPN Radio "ERADM")
     seen.add(name);
     out.push({name, type: b.type?.shortName || "TV", market: b.market?.type || "National"});
+  });
+  if (!out.length) (c.broadcasts || []).forEach(b => {   // team schedules use this shape
+    const name = b.media?.shortName; if (!name || seen.has(name) || /radio/i.test(b.type?.shortName || "")) return;
+    seen.add(name); out.push({name, type: b.type?.shortName || "TV", market: b.market?.type || "National"});
   });
   if (!out.length) (c.broadcasts || []).forEach(b => (b.names || []).forEach(n => {
     if (seen.has(n)) return; seen.add(n);
@@ -564,11 +660,218 @@ function watchList(bs){
   return out;
 }
 function watchChips(bs, max){
-  const w = watchList(bs).slice(0, max || 99);
+  const mineName = x => state.services.some(id => {
+    const sv = SVC[id]; if (!sv || sv.league) return false;
+    if (sv.id === "cable") return x.kind === "TV" && !STREAM_ONLY.test(x.label);
+    return sv.name === x.label || sv.nets.test(x.label.trim());
+  });
+  const w = watchList(bs).map(x => ({...x, mine: state.services.length && mineName(x)})).sort((a, b) => (b.mine ? 1 : 0) - (a.mine ? 1 : 0)).slice(0, max || 99);
   if (!w.length) return `<span class="hint">No broadcast listed yet</span>`;
   return w.map(x => x.href
-    ? `<a class="wchip stream" href="${esc(x.href)}" target="_blank" rel="noopener"><em>${esc(x.kind)}</em>${esc(x.label)}</a>`
-    : `<span class="wchip"><em>${esc(x.kind)}</em>${esc(x.label)}</span>`).join("");
+    ? `<a class="wchip stream${x.mine ? " mine" : ""}" href="${esc(x.href)}" target="_blank" rel="noopener"><em>${x.mine ? "Yours" : esc(x.kind)}</em>${esc(x.label)}</a>`
+    : `<span class="wchip${x.mine ? " mine" : ""}"><em>${x.mine ? "Yours" : esc(x.kind)}</em>${esc(x.label)}</span>`).join("");
+}
+
+/* ---------- My Services: what you watch on (same catalog as the app and alert server) ---------- */
+const STREAM_ONLY = /^(prime|amazon|netflix|peacock|paramount|espn\+|espn ?plus|espn ?unlimited|apple|mls season|youtube|hbo ?max|max$|dazn|fubo sports|nfl\+|mlb\.tv|nba league|f1 tv|victory|kayo|b\/r)/i;
+const SERVICES = [
+  {id:"cable", name:"Cable or live TV", sub:"YouTube TV, Hulu + Live TV, Fubo, Sling, DirecTV, Xfinity, Spectrum", nets:null},
+  {id:"antenna", name:"Antenna (free TV)", sub:"ABC, CBS, FOX, NBC", nets:/^(abc|cbs|fox|nbc|telemundo|univision|unimas|the cw|cw|ion)$/i},
+  {id:"espn", name:"ESPN app", sub:"ESPN Unlimited or ESPN+", nets:/^(espn|espn2|espnu|espnews|espn\+|espn ?plus|espn ?unlimited|espn deportes|sec ?network\+?|acc ?network ?extra|accnx|secn\+)/i},
+  {id:"peacock", name:"Peacock", sub:"NBC, Telemundo and Peacock games", nets:/^(nbc|peacock|telemundo|universo)/i},
+  {id:"paramount", name:"Paramount+", sub:"CBS and Paramount+ games", nets:/^(cbs$|paramount)/i},
+  {id:"prime", name:"Prime Video", sub:"Thursday Night Football, NBA, NASCAR and more", nets:/^(prime|amazon)/i},
+  {id:"foxone", name:"Fox One", sub:"FOX, FS1, FS2, Big Ten Network", nets:/^(fox|fs1|fs2|btn|big ten|fox sports|fox deportes)/i},
+  {id:"hbomax", name:"HBO Max", sub:"TNT, TBS and truTV games", nets:/^(tnt|tbs|trutv|hbo|max$)/i},
+  {id:"netflix", name:"Netflix", sub:"Netflix live games", nets:/^netflix/i},
+  {id:"apple", name:"Apple TV", sub:"MLS, Friday Night Baseball", nets:/^(apple|mls season)/i},
+  {id:"youtube", name:"YouTube", sub:"Free YouTube games", nets:/^youtube$/i},
+  {id:"nbalp", name:"NBA League Pass", sub:"Out-of-market NBA games, NBA TV", nets:/^(nba ?tv|nba league)/i, league:"nba"},
+  {id:"mlbtv", name:"MLB.TV", sub:"Out-of-market MLB games", nets:/^(mlb\.tv|mlb ?tv)/i, league:"mlb"},
+  {id:"nhl", name:"NHL on ESPN+", sub:"Out-of-market NHL games", nets:/^(espn\+|espn ?plus)/i, league:"nhl"},
+];
+const SVC = Object.fromEntries(SERVICES.map(x => [x.id, x]));
+const isLocalB = b => /home|away|local/i.test(b.market);
+/** {status: yes|maybe|no|unknown, via, network} or null when services aren't set */
+function canWatch(g, mine = state.services){
+  if (!mine.length) return null;
+  if (!g.broadcasts.length) return {status:"unknown", via:"", network:""};
+  const has = mine.map(id => SVC[id]).filter(Boolean);
+  for (const b of g.broadcasts.filter(b => !isLocalB(b))){
+    const name = b.name.trim();
+    for (const sv of has){
+      if (sv.league && sv.league !== g.lg.key) continue;
+      if (sv.id === "cable" ? !STREAM_ONLY.test(name) : sv.nets.test(name)) return {status:"yes", via:sv.name, network:name};
+    }
+  }
+  const local = g.broadcasts.find(isLocalB);
+  if (local){ const lp = has.find(sv => sv.id === "cable" || sv.id === "antenna" || (sv.league && sv.league === g.lg.key)); if (lp) return {status:"maybe", via:lp.name, network:local.name, pass: !!lp.league}; }
+  return {status:"no", via:"", network:g.broadcasts[0].name};
+}
+function watchLabel(w){
+  if (w.status === "yes") return `On your ${w.via}`;
+  if (w.status === "maybe") return w.pass ? `${w.via} (if out of market)` : `Local TV · check ${w.network}`;
+  if (w.status === "unknown") return "Channel not listed yet";
+  return `Not on your services · ${w.network}`;
+}
+const watchable = w => !w || w.status !== "no";
+function renderServices(){
+  $("svcList").innerHTML = SERVICES.map(sv => {
+    const on = state.services.includes(sv.id);
+    return `<li><button class="trow svc" data-svc="${sv.id}" aria-pressed="${on}"><span class="check${on ? " on" : ""}" aria-hidden="true">${on ? "✓" : ""}</span><span class="tn"><b>${esc(sv.name)}</b><small>${esc(sv.sub)}</small></span></button></li>`;
+  }).join("");
+  $("svcSave").textContent = state.services.length ? `Save ${state.services.length} service${state.services.length === 1 ? "" : "s"}` : "Skip for now";
+}
+
+/* ---------- My Week: your teams' next 7 days ---------- */
+async function teamSchedule(f){
+  const l = LG[f.lg]; if (!l) return [];
+  const base = `${API}${l.path}/teams/${f.id}/schedule`;
+  const parse = j => (j.events || []).map(ev => { try { return norm(ev, l); } catch(e){ return null; } }).filter(Boolean);
+  const j = await getJSON(base + (l.sport === "soccer" ? "?fixture=true" : ""));
+  let games = parse(j);
+  if ((j.requestedSeason?.type?.type ?? j.season?.type) === 1) games = games.concat(parse(await getJSON(base + "?seasontype=2").catch(() => ({}))));
+  return games;
+}
+async function loadWeek(){
+  const favs = [...state.fav.values()];
+  const now = Date.now(), until = now + 7*86400e3;
+  const res = await Promise.allSettled(favs.map(teamSchedule));
+  const map = new Map();
+  res.forEach(r => { if (r.status === "fulfilled") r.value.forEach(g => {
+    const t = new Date(g.date).getTime();
+    if (t > now - 5*3600e3 && t < until && g.state !== "post" && !/postponed|canceled/i.test(g.longDetail)){ g.ws = watchScore(g); map.set(g.id, g); }
+  }); });
+  if (!res.some(r => r.status === "fulfilled") && favs.length) throw new Error("no schedules");
+  return [...map.values()].sort((a, b) => new Date(a.date) - new Date(b.date));
+}
+function dayHeading(d){
+  const t = new Date(); t.setHours(0,0,0,0); const x = new Date(d); x.setHours(0,0,0,0);
+  const diff = Math.round((x - t) / 86400e3);
+  return diff === 0 ? "Today" : diff === 1 ? "Tomorrow" : d.toLocaleDateString(undefined, {weekday:"long", month:"short", day:"numeric"});
+}
+async function renderWeek(){
+  const el = $("weekBody");
+  const favs = [...state.fav.values()];
+  if (!favs.length){ el.innerHTML = `<div class="empty">Follow your teams and every game they play in the next 7 days shows up here, with the time and channel.<br><button class="btn" data-open="teams">Pick my teams</button></div>`; return; }
+  el.innerHTML = `<div class="skel" style="margin-top:16px"></div><div class="skel" style="margin-top:8px"></div>`;
+  let games;
+  try { games = await loadWeek(); } catch(e){ el.innerHTML = `<div class="err">Couldn't load schedules. Check your connection and try again.<br><button data-open="week">Try again</button></div>`; return; }
+  state.weekGames = games;
+  if (!games.length){ el.innerHTML = `<p class="hint">Next 7 days for ${esc(favs.map(f => f.name).join(", "))}.</p><div class="empty">None of your teams play in the next 7 days.</div>`; return; }
+  let html = `<p class="hint">Next 7 days for ${esc(favs.map(f => f.name).join(", "))}. Tap the calendar to add a game to your calendar.</p>`, last = "";
+  games.forEach(g => {
+    const h = dayHeading(new Date(g.date));
+    if (h !== last){ html += `<h3 class="wk-day">${esc(h)}</h3>`; last = h; }
+    const w = canWatch(g), tv = w?.status === "yes" ? w.network : g.broadcasts[0]?.name || "";
+    const tvTxt = tv ? (w?.status === "yes" ? `✓ ${tv} · on your ${w.via}` : w?.status === "no" ? `${tv} · not on your services` : tv) : "Channel not announced yet";
+    html += `<div class="wk-row">
+      <button class="wk-main" data-id="${esc(g.id)}">
+        <span class="wk-time"><b${g.state === "in" ? ' style="color:var(--live)"' : ""}>${g.state === "in" ? "LIVE" : esc(timeStr(g.date))}</b><small>${esc(g.lg.name)}</small></span>
+        <span class="wk-teams"><span>${img(g.away.logo)}${esc(g.away.name)}</span><span>${img(g.home.logo)}${esc(g.home.name)}</span><small class="${w?.status === "yes" ? "yes" : w?.status === "no" ? "no" : ""}">${esc(tvTxt)}</small></span>
+      </button>
+      <span class="wk-acts"><button class="icon-btn" data-cal="${esc(g.id)}" aria-label="Add to calendar">${CAL}</button><button class="icon-btn${state.follow[g.id] ? " on" : ""}" data-wkfollow="${esc(g.id)}" aria-label="Alert me">${BELL}</button></span>
+    </div>`;
+  });
+  el.innerHTML = html;
+}
+
+/* ---------- add to calendar ---------- */
+const SHARE = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3.5M7.5 8 12 3.5 16.5 8"/><path d="M5 12.5V19a1.5 1.5 0 0 0 1.5 1.5h11A1.5 1.5 0 0 0 19 19v-6.5"/></svg>`;
+const TVI = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="12" rx="2"/><path d="M8.5 21h7"/></svg>`;
+const CAL = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>`;
+const GAME_HOURS = {football:3.5, basketball:2.5, baseball:3, hockey:2.5, soccer:2};
+function calEvent(g){
+  const start = new Date(g.date), end = new Date(start.getTime() + (GAME_HOURS[g.lg.sport] || 3) * 3600e3);
+  const w = canWatch(g), tv = w?.status === "yes" ? w.network : g.broadcasts[0]?.name || "";
+  return {start, end, title: `${g.away.full || g.away.name} at ${g.home.full || g.home.name}`, notes: `${g.lg.name}${tv ? " · Watch on " + tv : ""} · Added from LiveSlate`, location: g.venue || ""};
+}
+function icsFor(g){
+  const e = calEvent(g), f = d => d.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
+  const x = t => String(t).replace(/[\\,;]/g, m => "\\" + m).replace(/\n/g, "\\n");
+  return ["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Digital AIM//LiveSlate//EN","BEGIN:VEVENT",`UID:liveslate-${g.id}@digitalaimgroup.github.io`,`DTSTAMP:${f(new Date())}`,
+    `DTSTART:${f(e.start)}`,`DTEND:${f(e.end)}`,`SUMMARY:${x(e.title)}`,`DESCRIPTION:${x(e.notes)}`,`LOCATION:${x(e.location)}`,
+    "BEGIN:VALARM","TRIGGER:-PT15M","ACTION:DISPLAY",`DESCRIPTION:${x(e.title)}`,"END:VALARM","END:VEVENT","END:VCALENDAR"].join("\r\n");
+}
+function addToCalendar(g){
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([icsFor(g)], {type: "text/calendar"}));
+  a.download = `${(g.away.abbr || "game")}-at-${(g.home.abbr || "game")}.ics`.toLowerCase();
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 5000);
+  const e = calEvent(g), f = d => d.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
+  const gcal = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(e.title)}&dates=${f(e.start)}/${f(e.end)}&details=${encodeURIComponent(e.notes)}&location=${encodeURIComponent(e.location)}`;
+  toastHTML("Calendar file ready", `Open it to add the game. Use Google Calendar? <a href="${esc(gcal)}" target="_blank" rel="noopener">Add it there</a>`);
+}
+
+/* ---------- share card (image) ---------- */
+function loadImg(src){ return new Promise(res => { if (!src) return res(null); const i = new Image(); i.crossOrigin = "anonymous"; i.onload = () => res(i); i.onerror = () => res(null); i.src = src; }); }
+async function shareImage(g, best){
+  const W = 1080, H = 1350, c = document.createElement("canvas"); c.width = W; c.height = H;
+  const x = c.getContext("2d");
+  await (document.fonts?.ready || Promise.resolve());
+  const disp = w => `${w} ${"Barlow Condensed"}, Impact, "Arial Narrow", sans-serif`;
+  x.fillStyle = "#0b1220"; x.fillRect(0, 0, W, H);
+  const grd = x.createLinearGradient(0, 0, 0, 420); grd.addColorStop(0, "rgba(242,179,61,.18)"); grd.addColorStop(1, "rgba(242,179,61,0)");
+  x.fillStyle = grd; x.fillRect(0, 0, W, 420);
+  x.textBaseline = "alphabetic";
+  x.font = disp("800 84px"); x.fillStyle = "#e9eef7"; x.fillText("LIVE", 72, 150); const lw = x.measureText("LIVE").width;
+  x.fillStyle = "#ff5a4f"; x.fillText("SLATE", 72 + lw, 150);
+  x.font = "700 40px system-ui, sans-serif"; x.fillStyle = "#8f9bb3"; x.textAlign = "right"; x.fillText(g.lg.name, W - 72, 140); x.textAlign = "left";
+  const live = g.state === "in", pre = g.state === "pre";
+  const kicker = best && live ? "BEST GAME ON" : best ? "BEST GAME UP NEXT" : live ? "LIVE NOW" : pre ? "COMING UP" : "FINAL";
+  x.font = disp("800 64px"); x.fillStyle = live && !best ? "#ff5a4f" : "#f2b33d"; x.textAlign = "center"; x.fillText(kicker, W/2, 300);
+  const [la, lh] = await Promise.all([loadImg(g.away.logo), loadImg(g.home.logo)]);
+  const col = (t, logo, cx) => {
+    if (logo) x.drawImage(logo, cx - 110, 380, 220, 220);
+    x.font = disp("700 64px"); x.fillStyle = "#e9eef7"; x.fillText(t.name.toUpperCase().slice(0, 14), cx, 690);
+    if (!pre){ x.font = disp("800 200px"); x.fillText(String(t.score ?? 0), cx, 900); }
+  };
+  col(g.away, la, W * .27); col(g.home, lh, W * .73);
+  x.font = disp("700 56px"); x.fillStyle = "#8f9bb3"; x.fillText(pre ? "AT" : "–", W/2, pre ? 520 : 840);
+  x.font = disp("700 64px"); x.fillStyle = live ? "#ff5a4f" : "#e9eef7";
+  x.fillText((pre ? new Date(g.date).toLocaleString(undefined, {weekday:"short", hour:"numeric", minute:"2-digit"}) : g.detail).toUpperCase(), W/2, pre ? 820 : 1010);
+  const w = canWatch(g), tv = w?.status === "yes" ? w.network : g.broadcasts[0]?.name || "";
+  if (tv){
+    x.font = "800 44px system-ui, sans-serif"; const txt = `Watch on ${tv}`, tw = x.measureText(txt).width + 80;
+    x.fillStyle = "#6d93ff"; x.beginPath(); x.roundRect ? x.roundRect(W/2 - tw/2, 1060, tw, 92, 46) : x.rect(W/2 - tw/2, 1060, tw, 92); x.fill();
+    x.fillStyle = "#0b1220"; x.fillText(txt, W/2, 1121);
+  }
+  if (g.state !== "post"){ x.font = "700 40px system-ui, sans-serif"; x.fillStyle = "#8f9bb3"; x.fillText(`Watch Score ${g.ws?.score ?? watchScore(g).score}`, W/2, 1220); }
+  x.font = "600 30px system-ui, sans-serif"; x.fillStyle = "#5b6578"; x.fillText("digitalaimgroup.github.io/liveslate · by Digital AIM", W/2, 1300);
+  return new Promise(res => c.toBlob(res, "image/png"));
+}
+async function openShare(g, best){
+  state.share = {g, best, blob: null};
+  $("shareSheet").hidden = false; document.body.style.overflow = "hidden";
+  $("sharePrev").innerHTML = `<div class="skel" style="height:300px"></div>`;
+  let blob = null;
+  try { blob = await shareImage(g, best); } catch(e){}
+  if (!blob){
+    try { blob = await shareImage({...g, away: {...g.away, logo: ""}, home: {...g.home, logo: ""}}, best); } catch(e){}   // logos blocked: draw without them
+  }
+  if (state.share?.g !== g) return;
+  state.share.blob = blob;
+  $("sharePrev").innerHTML = blob ? `<img src="${URL.createObjectURL(blob)}" alt="Share image of ${esc(matchup(g))}">` : `<div class="err">Couldn't make the image.</div>`;
+}
+async function doShare(){
+  const sh = state.share; if (!sh?.blob) return;
+  const g = sh.g, file = new File([sh.blob], `liveslate-${(g.away.abbr || "a")}-${(g.home.abbr || "b")}.png`.toLowerCase(), {type: "image/png"});
+  const text = `${g.state === "pre" ? matchup(g) : scoreline(g)} · ${g.detail || ""} — via LiveSlate ${location.origin}${location.pathname}`;
+  try {
+    if (navigator.canShare?.({files: [file]})) { await navigator.share({files: [file], text}); closeShare(); return; }
+  } catch(e){ if (e?.name === "AbortError") return; }
+  const a = document.createElement("a"); a.href = URL.createObjectURL(sh.blob); a.download = file.name;
+  document.body.appendChild(a); a.click(); a.remove();
+  toast("Image saved", "Post it to X, Instagram or your group chat.", null);
+}
+function closeShare(){ $("shareSheet").hidden = true; state.share = null; if ([...document.querySelectorAll(".sheet")].every(x => x.hidden)) document.body.style.overflow = ""; }
+function toastHTML(title, html){
+  const box = $("toasts"); if (!box) return;
+  const t = document.createElement("div"); t.className = "toast";
+  t.innerHTML = `${BELL}<div><b>${esc(title)}</b><span>${html}</span></div>`;
+  box.appendChild(t); while (box.children.length > 3) box.firstChild.remove();
+  setTimeout(() => t.remove(), 12000);
 }
 
 /* ---------- scoreboard loading ---------- */
@@ -635,7 +938,7 @@ async function loadBoard(){
   // keep checking in the background only when alerts need it
   if (!document.hidden || alertsActive()) boardTimer = setTimeout(loadBoard, document.hidden ? Math.max(60000, nextPollMs()) : nextPollMs());
 }
-function findGame(id){ return state.games.find(x => x.id === id) || state.todayGames.find(x => x.id === id); }
+function findGame(id){ return state.games.find(x => x.id === id) || state.todayGames.find(x => x.id === id) || state.weekGames.find(x => x.id === id); }
 // Poll fast while games are live, and wake up right at the next start time so games flip to LIVE on their own.
 function nextPollMs(){
   const pool = state.games.concat(state.todayGames);
@@ -691,7 +994,8 @@ async function pushSync(sub){
   sub = sub || await (await navigator.serviceWorker.ready).pushManager.getSubscription();
   if (!sub) return;
   const r = await fetch(PUSH_URL + "/subscribe", {method: "POST", headers: {"Content-Type": "application/json"},
-    body: JSON.stringify({subscription: sub.toJSON(), teams: [...state.fav.keys()], games: state.follow, prefs: state.alertPrefs})});
+    body: JSON.stringify({subscription: sub.toJSON(), teams: [...state.fav.keys()], games: state.follow, prefs: state.alertPrefs,
+      levels: state.levels, quiet: {...state.quiet, tz: Intl.DateTimeFormat().resolvedOptions().timeZone}, services: state.services})});
   if (!r.ok) throw new Error("subscribe " + r.status);
 }
 let pushSyncTimer = null;
@@ -709,12 +1013,31 @@ async function pushTest(){
   } catch(e){ toast("Test alert didn't send", "Couldn't reach the alert server.", null); }
 }
 function teamLabel(t){ return t.abbr || t.name; }
+function hourLabel(h){ return h === 0 ? "Midnight" : h === 12 ? "Noon" : h < 12 ? `${h} AM` : `${h - 12} PM`; }
 function scoreline(g){ return `${teamLabel(g.away)} ${g.away.score ?? 0}, ${teamLabel(g.home)} ${g.home.score ?? 0}`; }
 function matchup(g){ return `${teamLabel(g.away)} at ${teamLabel(g.home)}`; }
 function fire(key, title, body, g){
   if (state.sent[key]) return;
   state.sent[key] = Date.now(); savePref("sent", state.sent);
   notify(title, body, g);
+}
+const BIG_MOMENTS = new Set(["soon", "start", "close", "final"]);
+function inQuiet(){
+  const q = state.quiet; if (!q.on) return false;
+  const h = new Date().getHours();
+  return q.start > q.end ? (h >= q.start || h < q.end) : (h >= q.start && h < q.end);
+}
+/** Does this fan want this kind of alert for this game? (mirrors the alert server's rules) */
+function wantsAlert(g, type){
+  const P = state.alertPrefs;
+  if (inQuiet()) return false;
+  if (type === "must") return P.mustWatch && watchable(canWatch(g));
+  if (!P[type]) return false;
+  if (state.follow[g.id]) return true;
+  if (!P.teams) return false;
+  let level = -1;
+  for (const t of [g.home, g.away]){ const k = g.lg.key + ":" + t.id; if (state.fav.has(k)) level = Math.max(level, {off:0, big:1, all:2}[state.levels[k] || "all"]); }
+  return level === 2 || (level === 1 && BIG_MOMENTS.has(type));
 }
 function runAlerts(games){
   const P = state.alertPrefs;
@@ -723,26 +1046,26 @@ function runAlerts(games){
     state.snap[g.id] = {st:g.state, h:g.home.score, a:g.away.score};
     const tv = watchList(g.broadcasts)[0]?.label;
     const on = tv ? ` · ${tv}` : "";
-    const mine = (P.teams && isFavGame(g)) || !!state.follow[g.id];
+    const mine = true;   // wantsAlert() decides per alert type
     if (mine){
-      if (P.soon && g.state === "pre"){
+      if (wantsAlert(g, "soon") && g.state === "pre"){
         const m = (new Date(g.date) - Date.now()) / 60000;
         if (m > 0 && m <= 15) fire(`soon:${g.id}`, `${matchup(g)} starts in ${Math.max(1, Math.round(m))} min`, `${g.lg.name}${on}`, g);
       }
-      if (P.start && g.state === "in" && prev && prev.st === "pre") fire(`start:${g.id}`, `${matchup(g)} is underway`, `${g.lg.name}${on}`, g);
-      if (P.score && g.state === "in" && prev && prev.st === "in" && (prev.h !== g.home.score || prev.a !== g.away.score)){
+      if (wantsAlert(g, "start") && g.state === "in" && prev && prev.st === "pre") fire(`start:${g.id}`, `${matchup(g)} is underway`, `${g.lg.name}${on}`, g);
+      if (wantsAlert(g, "score") && g.state === "in" && prev && prev.st === "in" && (prev.h !== g.home.score || prev.a !== g.away.score)){
         const homeUp = (g.home.score ?? 0) > (prev.h ?? 0), awayUp = (g.away.score ?? 0) > (prev.a ?? 0);
         const who = homeUp && !awayUp ? g.home.name : awayUp && !homeUp ? g.away.name : "";
         const last = g.sit?.lastPlay?.text;
         fire(`score:${g.id}:${g.away.score}-${g.home.score}`, `${who ? who + " score · " : ""}${scoreline(g)}`, `${g.detail}${last ? " · " + last : ""}`, g);
       }
-      if (P.close && g.state === "in" && g.ws?.why.some(w => w.t === "Crunch time")) fire(`close:${g.id}`, `Crunch time: ${scoreline(g)}`, `${g.detail}${on}`, g);
-      if (P.final && g.state === "post" && prev && prev.st !== "post"){
+      if (wantsAlert(g, "close") && g.state === "in" && g.ws?.why.some(w => w.t === "Crunch time")) fire(`close:${g.id}`, `Crunch time: ${scoreline(g)}`, `${g.detail}${on}`, g);
+      if (wantsAlert(g, "final") && g.state === "post" && prev && prev.st !== "post"){
         const w = g.home.winner ? g.home : g.away.winner ? g.away : null;
         fire(`final:${g.id}`, `Final: ${scoreline(g)}`, w ? `${w.full || w.name} win` : g.lg.name, g);
       }
     }
-    if (P.mustWatch && g.state === "in" && g.ws?.score >= 80) fire(`must:${g.id}`, `Must-watch: ${scoreline(g)}`, `${g.lg.name} · ${g.detail} · Watch Score ${g.ws.score}${on}`, g);
+    if (wantsAlert(g, "must") && g.state === "in" && g.ws?.score >= 80) fire(`must:${g.id}`, `Flip to it: ${scoreline(g)}`, `${g.lg.name} · ${g.detail}${tv ? " · on " + tv : ""} · Watch Score ${g.ws.score}`, g);
   });
 }
 async function notify(title, body, g){
@@ -810,9 +1133,10 @@ function renderAlertsSheet(){
   const follows = Object.entries(state.follow).map(([id, f]) => ({id, f, g: findGame(id)}));
   el.innerHTML = `${perm}
     <div class="panel"><h4>Who alerts you</h4>
-      ${sw("teams", "My teams", favs.length ? esc(favs.map(f => f.name || f.abbr || "Team").join(", ")) : "Follow teams to get alerts for every game they play")}
+      ${sw("teams", "My teams", favs.length ? "Choose how much you hear about each team" : "Follow teams to get alerts for every game they play")}
+      ${P.teams ? [...state.fav.entries()].map(([k, f]) => { const lv = state.levels[k] || "all"; return `<div class="opt lvl"><div class="lvl-team">${img(f.logo)}<div><b>${esc(f.name || f.abbr)}</b><span>${esc(LG[f.lg]?.name || "")} · ${lv === "all" ? "Everything below" : lv === "big" ? "Start, crunch time, final" : "No alerts"}</span></div></div><span class="seg mini">${["all","big","off"].map(v => `<button data-level="${esc(k)}" data-v="${v}" aria-pressed="${lv === v}">${v === "all" ? "All" : v === "big" ? "Big" : "Off"}</button>`).join("")}</span></div>`; }).join("") : ""}
       <div class="opt"><div><b>Games you follow</b><span>${follows.length ? esc(follows.map(x => x.g ? matchup(x.g) : "Upcoming game").join(", ")) : "Open any game and tap Alert me"}</span></div></div>
-      ${sw("mustWatch", "Must-watch games", "Any league, when a live game's Watch Score hits 80 or more")}
+      ${sw("mustWatch", "Flip to it", state.services.length ? "Any league: when a live game gets great (Watch Score 80+) and it's on one of your services, with the channel" : "Any league: when a live game gets great (Watch Score 80+), with the channel to turn on")}
       <div style="padding-top:10px"><button class="btn ghost" data-open="teams">Pick my teams</button></div>
     </div>
     <div class="panel"><h4>What alerts you</h4>
@@ -822,7 +1146,11 @@ function renderAlertsSheet(){
       ${sw("close", "Crunch time", "Close game late, so you can flip it on")}
       ${sw("final", "Final score", "Who won and the final")}
     </div>
-    <p class="hint">${state.push.on ? "The LiveSlate alert server checks scores every minute, so alerts arrive within a minute or two of the play." : "Alerts come from LiveSlate checking scores, so it needs to be open or running in the background. Phones pause web apps after a while, so open LiveSlate before your game starts."}</p>`;
+    <div class="panel"><h4>Quiet hours</h4>
+      <label class="opt"><div><b>Quiet hours</b><span>${state.quiet.on ? `No alerts from ${hourLabel(state.quiet.start)} to ${hourLabel(state.quiet.end)}` : "Pause alerts overnight"}</span></div><span class="switch"><input type="checkbox" id="quietOn" ${state.quiet.on ? "checked" : ""}><i></i></span></label>
+      ${state.quiet.on ? `<div class="presets">${[[22,8],[23,7],[0,9],[21,7]].map(([a, b]) => `<button class="chip" data-quiet="${a}-${b}" aria-pressed="${state.quiet.start === a && state.quiet.end === b}">${hourLabel(a)} – ${hourLabel(b)}</button>`).join("")}</div>` : ""}
+    </div>
+    <p class="hint">${state.push.on ? "Your alert choices are saved on the LiveSlate alert server, so they never reset. It checks scores every minute, so alerts arrive within a minute or two of the play." : "Alerts come from LiveSlate checking scores, so it needs to be open or running in the background. Phones pause web apps after a while, so open LiveSlate before your game starts."}</p>`;
 }
 
 /* ---------- my teams picker ---------- */
@@ -873,12 +1201,15 @@ function openSheet(id){
     renderPicked(); renderTeamList();
   }
   if (id === "alertsSheet") renderAlertsSheet();
+  if (id === "servicesSheet") renderServices();
+  if (id === "weekSheet") renderWeek();
   $(id).hidden = false; $(id).scrollTop = 0; document.body.style.overflow = "hidden";
 }
 function closeSheet(id){
   $(id).hidden = true;
   if ([...document.querySelectorAll(".sheet")].every(s => s.hidden)) document.body.style.overflow = "";
-  if (id === "teamsSheet" || id === "alertsSheet"){ render(); if (state.detail) renderDetail(); if (id === "teamsSheet") loadBoard(); }
+  if (id === "servicesSheet" && !state.servicesAsked){ state.servicesAsked = true; savePref("servicesAsked", true); }
+  if (id === "teamsSheet" || id === "alertsSheet" || id === "servicesSheet"){ render(); if (state.detail) renderDetail(); if (id === "teamsSheet") loadBoard(); }
 }
 // New calendar day: jump back to today's slate and start fresh.
 function checkRollover(){
@@ -968,12 +1299,13 @@ function teamRow(t, g, side){
 }
 function gameCard(g){
   const tv = watchList(g.broadcasts)[0];
+  const w = canWatch(g);
   const sit = sitLine(g);
   const showWs = g.state !== "post";
   return `<button class="game${isFavGame(g) ? " fav" : ""}" data-id="${esc(g.id)}" aria-label="${esc(g.away.full)} at ${esc(g.home.full)}">
     <div class="st">${statusCell(g)}</div>
     <div class="rows">${teamRow(g.away, g, "a")}${teamRow(g.home, g, "h")}${sit ? `<div class="sit">${esc(sit)}</div>` : ""}</div>
-    <div class="side">${showWs ? `<div class="ws" title="Watch Score">${g.ws.score}<small>WATCH</small></div>` : ""}${tv ? `<span class="tv">${esc(tv.label)}</span>` : ""}${state.follow[g.id] ? `<span class="bell" title="Alerts on">${BELL}</span>` : ""}</div>
+    <div class="side">${showWs ? `<div class="ws" title="Watch Score">${g.ws.score}<small>WATCH</small></div>` : ""}${w?.status === "yes" ? `<span class="tv yes">✓ ${esc(w.network)}</span>` : tv ? `<span class="tv${w?.status === "no" ? " no" : ""}">${esc(tv.label)}</span>` : ""}${state.follow[g.id] ? `<span class="bell" title="Alerts on">${BELL}</span>` : ""}</div>
   </button>`;
 }
 function renderBest(){
@@ -981,7 +1313,11 @@ function renderBest(){
   const pre = state.games.filter(g => g.state === "pre").sort((a,b) => (b.ws.score - a.ws.score) || (new Date(a.date) - new Date(b.date)));
   const pool = live.length ? live : pre;
   if (!pool.length || state.filter === "post"){ $("best").innerHTML = ""; return; }
-  const g = pool[0], rest = pool.slice(1, 3);
+  // With My Services set, Best Game On is the best game you can actually turn on.
+  const g = pool.find(x => watchable(canWatch(x))) || pool[0], rest = pool.filter(x => x !== g).slice(0, 2);
+  const top = pool[0], gw = canWatch(g), tw = canWatch(top);
+  const note = top !== g && tw?.status === "no" ? `The top-rated game, ${matchup(top)}, is on ${tw.network}, which isn't one of your services.` : "";
+  const why = g.ws.why.concat(gw?.status === "yes" ? [{t: `On your ${gw.via}`}] : []);
   const isLive = g.state === "in";
   const bt = (t, side) => {
     const lose = isLive && t.score < (side === "h" ? g.away.score : g.home.score);
@@ -993,8 +1329,8 @@ function renderBest(){
       <div class="best-teams">${bt(g.away, "a")}${bt(g.home, "h")}${sitLine(g) ? `<div class="sit">${esc(sitLine(g))}</div>` : ""}</div>
       <div class="meter"><div class="ring" style="--v:${g.ws.score}"><div>${g.ws.score}</div></div><small>Watch Score</small></div>
     </button>
-    ${g.ws.why.length ? `<div class="why">${g.ws.why.map(w => `<span class="tag${w.hot ? " hot" : ""}">${esc(w.t)}</span>`).join("")}</div>` : ""}
-    <div class="best-foot"><div class="watch">${watchChips(g.broadcasts, 4)}</div></div>
+    ${why.length ? `<div class="why">${why.map(w => `<span class="tag${w.hot ? " hot" : ""}">${esc(w.t)}</span>`).join("")}</div>` : ""}
+    <div class="best-foot"><div class="watch">${watchChips(g.broadcasts, 4)}</div><button class="btn ghost sm" data-share="${esc(g.id)}" data-best="1">${SHARE}Share</button>${note ? `<div class="hint wnote">${esc(note)}</div>` : ""}</div>
     ${rest.length ? `<div class="alsos">${rest.map(r => `<button class="also" data-id="${esc(r.id)}"><div style="min-width:0"><div class="t">${esc(r.away.abbr || r.away.name)} ${r.state === "in" ? r.away.score + "–" + r.home.score : "vs"} ${esc(r.home.abbr || r.home.name)}</div><div class="d">${esc(r.lg.name)} · ${esc(r.state === "in" ? r.detail : timeStr(r.date))}${watchList(r.broadcasts)[0] ? " · " + esc(watchList(r.broadcasts)[0].label) : ""}</div></div><div class="s">${r.ws.score}</div></button>`).join("")}</div>` : ""}
   </div>`;
 }
@@ -1016,10 +1352,14 @@ function render(){
   let html = "";
   if (!state.fav.size){
     html += `<div class="invite"><div><b>Follow your teams</b><span>Pin their games to the top and get score alerts.</span></div><button class="btn" data-open="teams">Pick teams</button></div>`;
+  } else if (!state.servicesAsked && state.games.length){
+    html += `<div class="invite"><div><b>What do you watch on?</b><span>Pick your TV and streaming apps, and LiveSlate shows which games you can actually turn on.</span></div><button class="btn" data-open="services">Set up</button></div>`;
+  }
+  if (!state.fav.size){
   } else if (mine.length){
-    html += `<div class="group mine"><h3>My Teams <button class="linkbtn" data-open="teams">Edit</button></h3><div class="games">${mine.map(gameCard).join("")}</div></div>`;
+    html += `<div class="group mine"><h3>My Teams <button class="linkbtn" data-open="week">My Week</button><button class="linkbtn" data-open="teams">Edit</button></h3><div class="games">${mine.map(gameCard).join("")}</div></div>`;
   } else if (shownFavs.length && state.filter === "all"){
-    html += `<div class="group mine"><h3>My Teams <button class="linkbtn" data-open="teams">Edit</button></h3><div class="hint" style="margin:0">${esc(shownFavs.map(f => f.name || f.abbr).join(", "))} ${shownFavs.length === 1 ? "doesn't" : "don't"} play ${state.dayOffset === 0 ? "today" : "on " + esc(dayLabel(state.dayOffset))}.</div></div>`;
+    html += `<div class="group mine"><h3>My Teams <button class="linkbtn" data-open="week">My Week</button><button class="linkbtn" data-open="teams">Edit</button></h3><div class="hint" style="margin:0">${esc(shownFavs.map(f => f.name || f.abbr).join(", "))} ${shownFavs.length === 1 ? "doesn't" : "don't"} play ${state.dayOffset === 0 ? "today" : "on " + esc(dayLabel(state.dayOffset))}.</div></div>`;
   }
   if (!games.length){
     const what = {all:"games", in:"live games right now", pre:"upcoming games", post:"final scores"}[state.filter];
@@ -1034,7 +1374,7 @@ function render(){
 /* ---------- detail ---------- */
 function openGame(id){
   const g = findGame(id); if (!g) return;
-  ["teamsSheet", "alertsSheet"].forEach(s => { $(s).hidden = true; });
+  ["teamsSheet", "alertsSheet", "servicesSheet", "weekSheet"].forEach(s => { $(s).hidden = true; });
   state.detail = {game:g, data:null, tab:"plays", scoringOnly:false, shown:150, seen:null, err:null};
   $("sheet").hidden = false; document.body.style.overflow = "hidden";
   $("sheet").scrollTop = 0;
@@ -1142,7 +1482,8 @@ function detailHeadHTML(g){
       ${sit}${ls}
     </div>
     ${alertsPanel(g)}
-    <div class="panel"><h4>Where to watch</h4><div class="watch">${watchChips(g.broadcasts)}</div>
+    <div class="dacts"><button class="btn ghost sm" data-share="${esc(g.id)}">${SHARE}Share</button>${pre ? `<button class="btn ghost sm" data-cal="${esc(g.id)}">${CAL}Add to calendar</button>` : ""}</div>
+    <div class="panel"><h4>Where to watch</h4>${(() => { const w = canWatch(g); return w ? `<div class="wbanner ${w.status}">${w.status === "yes" ? "✓ " : ""}${esc(watchLabel(w))} <button class="linkbtn" data-open="services">Edit</button></div>` : `<div class="wbanner"><button class="linkbtn" data-open="services">Tell us what you watch on</button> to see if you can turn this on.</div>`; })()}<div class="watch">${watchChips(g.broadcasts)}</div>
       <div class="hint">${g.venue ? esc(g.venue) + " · " : ""}Local broadcasts and blackouts depend on where you live.</div></div>
     ${g.state !== "post" ? `<div class="panel"><h4>Watch Score · ${g.ws.score}</h4><div class="why" style="padding:0">${g.ws.why.length ? g.ws.why.map(w => `<span class="tag${w.hot ? " hot" : ""}">${esc(w.t)}</span>`).join("") : `<span class="hint" style="margin:0">Nothing special yet. Check back as it tightens up.</span>`}</div></div>` : ""}
   </div>`;
@@ -1267,7 +1608,23 @@ document.addEventListener("click", e => {
   if (e.target.closest("#retry")){ firstLoad = true; loadBoard(); return; }
   // sheets
   const op = e.target.closest("[data-open]");
-  if (op){ openSheet(op.dataset.open === "teams" ? "teamsSheet" : "alertsSheet"); return; }
+  if (op){ openSheet(({teams:"teamsSheet", services:"servicesSheet", week:"weekSheet"})[op.dataset.open] || "alertsSheet"); return; }
+  if (e.target.closest("#openServices")){ openSheet("servicesSheet"); return; }
+  const sv = e.target.closest("[data-svc]");
+  if (sv){ const id = sv.dataset.svc; state.services = state.services.includes(id) ? state.services.filter(x => x !== id) : [...state.services, id]; savePref("services", state.services); renderServices(); schedulePushSync(); return; }
+  if (e.target.closest("#svcSave")){ closeSheet("servicesSheet"); return; }
+  const lv = e.target.closest("[data-level]");
+  if (lv){ state.levels[lv.dataset.level] = lv.dataset.v; savePref("levels", state.levels); schedulePushSync(); renderAlertsSheet(); return; }
+  const qp = e.target.closest("[data-quiet]");
+  if (qp){ const [a, b] = qp.dataset.quiet.split("-").map(Number); state.quiet = {...state.quiet, start:a, end:b}; savePref("quiet", state.quiet); schedulePushSync(); renderAlertsSheet(); return; }
+  const shb = e.target.closest("[data-share]");
+  if (shb){ const g = findGame(shb.dataset.share) || (state.detail?.game?.id === shb.dataset.share ? state.detail.game : null); if (g) openShare(g, !!shb.dataset.best); return; }
+  if (e.target.closest("#shareGo")){ doShare(); return; }
+  if (e.target.closest("#shareClose")){ closeShare(); return; }
+  const cal = e.target.closest("[data-cal]");
+  if (cal){ const g = findGame(cal.dataset.cal) || (state.detail?.game?.id === cal.dataset.cal ? state.detail.game : null); if (g) addToCalendar(g); return; }
+  const wf = e.target.closest("[data-wkfollow]");
+  if (wf){ const g = findGame(wf.dataset.wkfollow); if (g){ toggleFollow(g); wf.classList.toggle("on", !!state.follow[g.id]); } return; }
   const cl = e.target.closest("[data-close]");
   if (cl){ closeSheet(cl.dataset.close); return; }
   if (e.target.closest("#openTeams")){ openSheet("teamsSheet"); return; }
@@ -1298,6 +1655,7 @@ document.addEventListener("click", e => {
   if (card && !e.target.closest("a")){ openGame(card.dataset.id); return; }
 });
 document.addEventListener("change", e => {
+  if (e.target.id === "quietOn"){ state.quiet = {...state.quiet, on: e.target.checked}; savePref("quiet", state.quiet); schedulePushSync(); renderAlertsSheet(); return; }
   if (e.target.id === "scoringOnly" && state.detail){ state.detail.scoringOnly = e.target.checked; state.detail.shown = 150; renderDetail(); }
   const pk = e.target.dataset?.pref;
   if (pk){
@@ -1311,7 +1669,8 @@ $("teamSearch").addEventListener("input", e => { state.teamQuery = e.target.valu
 $("back").addEventListener("click", closeGame);
 document.addEventListener("keydown", e => {
   if (e.key !== "Escape") return;
-  const open = ["alertsSheet", "teamsSheet"].find(id => !$(id).hidden);
+  if (!$("shareSheet").hidden){ closeShare(); return; }
+  const open = ["servicesSheet", "weekSheet", "alertsSheet", "teamsSheet"].find(id => !$(id).hidden);
   if (open) closeSheet(open); else if (state.detail) closeGame();
 });
 $("prevDay").addEventListener("click", () => { state.dayOffset--; state.games = []; state.prev = {}; firstLoad = true; render(); loadBoard(); });
